@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Promise Day 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  height:100vh;
+  background: linear-gradient(135deg,#ffd6e0,#ff9aa2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.container{
+  text-align:center;
+  position:relative;
+}
+
+.envelope{
+  width:260px;
+  height:160px;
+  background:#ff4d6d;
+  position:relative;
+  margin:auto;
+  border-radius:8px;
+  cursor:pointer;
+  transition:1s;
+}
+
+.flap{
+  width:0;
+  height:0;
+  border-left:130px solid transparent;
+  border-right:130px solid transparent;
+  border-bottom:80px solid #ff758f;
+  position:absolute;
+  top:-80px;
+  left:0;
+  transition:1s;
+  transform-origin:bottom;
+}
+
+.paper{
+  width:260px;
+  height:360px;
+  background:white;
+  position:absolute;
+  top:10px;
+  left:0;
+  border-radius:6px;
+  padding:20px;
+  transform:translateY(150px);
+  transition:1.5s;
+  overflow:hidden;
+  opacity:0;
+}
+
+.open .flap{
+  transform:rotateX(180deg);
+}
+
+.open .paper{
+  transform:translateY(-240px);
+  opacity:1;
+}
+
+h2{
+  text-align:center;
+  color:#ff4d6d;
+  margin-bottom:10px;
+}
+
+#letterText{
+  font-size:14px;
+  color:#333;
+  line-height:1.6;
+  text-align:left;
+}
+
+.sparkle{
+  position:absolute;
+  font-size:18px;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+button{
+  margin-top:20px;
+  padding:8px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="envelope" onclick="openLetter()" id="envelope">
+  <div class="flap"></div>
+  <div class="paper">
+    <h2>To My PANDULUU 🤍</h2>
+    <div id="letterText"></div>
+  </div>
+</div>
+
+<button onclick="openLetter()">Open My Promise 💌</button>
+
+</div>
+
+<audio id="bgm" loop>
+  <source src="promise_song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const message = 
+"My Dearest PANDULUU🥹🤌🏻,\n\n" +
+
+"Before I make promises today, I need to speak from my heart❤️ I am truly sorry for the moments I hurt you,even if I didn’t mean too😞 You are too precious to me than my ego,my anger,Sry for all mistake that happened between us😫.\n\n" +
+
+"I promise you, PANDULUU…🫂 I promise to always stand by your side, to hold your hand in every joy and every sorrow.🫴🏻 I promise to love you endlessly, to respect you, and to cherish every single moment with you🥳🥹\n\n" +
+
+"No matter what life brings, my heart will always belong to you❤️‍🔥You are my happiness, my strength, and my forever🫵🏻💓\n\n" +
+
+"I promise to keep you safe in my love, today and always ♾️\n\n" +
+
+"Forever yours,\nWith all my love 🤍" "Finally,One word, NAATHONE NUVVU UNDIPOO,VELLETI MAATA MANUKO🙏🏻😭😚❤️‍🔥🫂;
+
+let opened = false;
+let i = 0;
+
+function openLetter(){
+  if(opened) return;
+  opened = true;
+
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("bgm").play();
+  typeLetter();
+  createSparkles();
+}
+
+function typeLetter(){
+  if(i < message.length){
+    document.getElementById("letterText").innerHTML +=
+      message.charAt(i) === "\n" ? "<br><br>" : message.charAt(i);
+    i++;
+    setTimeout(typeLetter,30);
+  }
+}
+
+function createSparkles(){
+  setInterval(()=>{
+    const sparkle=document.createElement("div");
+    sparkle.className="sparkle";
+    sparkle.innerHTML="✨";
+    sparkle.style.left=Math.random()*100+"vw";
+    document.body.appendChild(sparkle);
+    setTimeout(()=>sparkle.remove(),6000);
+  },500);
+}
+
+</script>
+
+</body>
+</html>
