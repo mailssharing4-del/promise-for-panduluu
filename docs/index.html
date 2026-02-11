@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Promise For PANDULUU</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(to bottom,#ffdde1,#ee9ca7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+}
+
+.envelope{
+    width:200px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.paper{
+    width:320px;
+    height:420px;
+    background:white;
+    position:absolute;
+    top:100%;
+    left:50%;
+    transform:translateX(-50%);
+    padding:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    overflow:auto;
+    border-radius:10px;
+    transition:1s;
+    opacity:0;
+}
+
+.paper.show{
+    top:15%;
+    opacity:1;
+}
+
+h2{
+    text-align:center;
+}
+
+p{
+    font-size:16px;
+    line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+         class="envelope"
+         onclick="openLetter()">
+
+    <div class="paper" id="letter">
+        <h2>My Promise To You PANDULUU 🤍</h2>
+
+        <p>
+        My dearest PANDULUU😚<br><br>
+
+        I promise to always stand by your side,to hold your hand in every joy and every sorrow🫴🏻🫴🏻
+        I promise to love you endlessly,to respect you, and to cherish every moment with you🥳🔥
+        No matter what life brings, my heart will always belong to you💓
+        You are my happiness, my strength, and my forever😫♾️
+        I promise to keep you safe in my love, today and alway✅❤️‍🔥.<br><br>
+
+        I know I made mistakes… and I am truly sorry🙏🏻😭
+        If I ever hurt you, please forgive me😞
+        My love for you is pure and real💯
+        I never want to lose you🥺
+        You mean everything to me💪🏻🌍<br><br>
+
+        Today on Promise Day, I promise not just with words… 
+        but with my heart, my soul, and my forever♾️🥹
+       Finally,one thing, "NAATHONE NUVVU UNDIPOO VELLETI MAATA MANUKO"🙏🏻😭❤️‍🔥🫂🥹😚.<br><br>
+
+        Yours forever 🤍
+          Pandu Divyasree Gaikwad always ✅🥹🫂
+        </p>
+    </div>
+</div>
+
+<audio id="bgMusic">
+    <source src="promise_song.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function openLetter(){
+    document.getElementById("letter").classList.add("show");
+
+    var music = document.getElementById("bgMusic");
+    music.play();
+}
+</script>
+
+</body>
+</html>
